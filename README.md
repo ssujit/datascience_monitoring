@@ -3,7 +3,8 @@
 ## Documentation for the elearning  
 
 #What? 
-To use the blessings of opendata for generating policy relevant knowledge in case of landuse and urban development.
+
+- To use the blessings of opendata for generating policy relevant knowledge in case of landuse and urban development.
 
 
 # Principals: 
