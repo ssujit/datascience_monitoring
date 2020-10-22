@@ -1,19 +1,19 @@
 # datascience_monitoring
 
-## Documentation for the elearning
+# Documentation for the elearning
 
 #What?
 
 - To generating policy relevant knowledge in case of landuse and urban development.
 
 
-# Principals:
+### Principals:
 - reproducibality
 - sustainability
 - scalable
 
 
-# Authors credits:
+### Authors credits:
 **S. Sikder**
 - Data harvesting from Worldbank API with R
 
