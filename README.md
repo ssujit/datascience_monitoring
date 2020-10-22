@@ -1,12 +1,21 @@
 # datascience_monitoring
 
-## Documentation for the elearning  
+## Documentation for the elearning
 
-#What? 
+#What?
 
-- To use the blessings of opendata for generating policy relevant knowledge in case of landuse and urban development.
+- To generating policy relevant knowledge in case of landuse and urban development.
 
 
-# Principals: 
+# Principals:
 - reproducibality
+- sustainability
+- scalable
 
+
+# Authors credits:
+**S. Sikder**
+- Worldbank Dataharvesting with R
+
+ **M. Munzinger:**
+- Automation with SQL and QGIS
