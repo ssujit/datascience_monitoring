@@ -15,7 +15,7 @@
 
 # Authors credits:
 **S. Sikder**
-- Worldbank Dataharvesting with R
+- Data harvesting from Worldbank API with R
 
  **M. Munzinger:**
 - Automation with SQL and QGIS
