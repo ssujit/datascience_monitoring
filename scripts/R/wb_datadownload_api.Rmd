@@ -1,0 +1,94 @@
+---
+title: "Accessing World Bank API on Development Indicators"
+author: "S. Sikder"
+date: "October 23, 2019"
+output: html_document
+---
+
+# URL of world Bank API: https://data.worldbank.org/indicator
+
+# try with new package "wbstats" require an updated verion of r
+
+```{r, echo=TRUE}
+
+# Part one: Data download
+
+# install required packages 
+install.packages("wbstats")
+library(wbstats)
+
+
+# explore useful information on country, region, indicators, topics, data sources
+
+View((wb_countries())) # useful to call country data give also lat and long 
+View((wb_regions())) # can be use for call regional indicator
+View((wb_topics())) # give a list of all topics 
+View((wb_indicators())) # detail information on each indicator including source of information, it will be helpful to find a indicator of interest
+
+
+
+
+# it is possible to get all country information at once but can take more downloading time, therefore it is a good practice to access information according to need - depending on - Topic of interest, Time range, Area of interest
+
+# Lets say we are interested to study the historical trend of some selected indicators on population, urban development, air population in order to make a comparison on regional and National statistics in last 25 year period (from the year 1990)
+
+# now define set of indicator(s) of your interest
+## Urban population (% of total): SP.URB.TOTL.IN.ZS
+## Urban population growth (annual %):SP.URB.GROW	
+## CO2 emissions from transport (% of total fuel combustion): EN.CO2.TRAN.ZS
+## Population in the largest city (% of urban population): EN.URB.LCTY.UR.ZS
+	
+study_indicators <- c("SP.URB.TOTL.IN.ZS", "SP.URB.GROW", "EN.CO2.TRAN.ZS",  "EN.URB.LCTY.UR.ZS")
+
+
+# download indicators values and store as a dataframe for year of 1975 and 2015 (Germany, region, world)
+ 
+mydata_de <- wb_data(study_indicators, country = "de", start_date = 1975, end_date = 2015) # for germany
+mydata_region <- wb_data(study_indicators, country = "regions_only", start_date = 1975, end_date = 2015) # for region
+mydata_world <- wb_data(study_indicators, country = "world", start_date = 1975, end_date = 2015) # for world
+
+
+# Combine all dataframe as one
+mydata_de_region_world <- rbind( mydata_de, mydata_region, mydata_world)
+
+
+
+# Part 2: Compartive time-serious visualization on urbanization and co2 emission from transportation sector. 
+
+
+# install require package - ggplot2
+
+install.packages("ggplot2")
+library(ggplot2)
+
+# plot points and points size with selected indicators (where x-axis year)
+myplot<- ggplot()+geom_point(data=mydata_de_region_world, aes(x=date, y=EN.CO2.TRAN.ZS, size = SP.URB.TOTL.IN.ZS, colour = "red", alpha = 0.3)) #  plot points - with total share of urban populaton (size) and co2 emission from transport sector 
+
+# add another indicators as lines plot
+myplot<- myplot+geom_line(data=mydata_de_region_world, aes(x=date, y= EN.URB.LCTY.UR.ZS), colour = "red", cex = 1.5)#  plot line - with population in large cities 
+
+# add another indicators as bar plot
+myplot<- myplot+ geom_bar( data=mydata_de_region_world, stat = "identity", aes(x=date, y= SP.URB.GROW)) # fill annual growth of urban population
+
+# add axis label, set axis limit, title
+
+myplot <-myplot+ xlab("YEAR")+xlim(1975,2015)+ylab("IN PERCENTAGE (%)")+ylim(-5,40)+ theme_bw()
+myplot <-myplot + ggtitle("Bar: Urban population growth, Line: population in large cities, point: CO2 emissions from transport, point size: urban population")+theme(legend.position = "none", plot.title =element_text(size=12))
+
+# draw multiple plot as one 
+
+myplot+facet_wrap(~country)
+
+
+# Ref: https://cran.r-project.org/web/packages/wbstats/wbstats.pdf
+
+# some futher idea to explore
+
+# get spatial data on world country, region and combine the indicator data of World Bank  API for interactive visualization.
+
+```
+
+
+
+
+
