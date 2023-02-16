@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: Sikder
+  given-names: Sujit Kumar
+  orcid: https://orcid.org/0000-0002-0265-7394
+title: "datascience_monitoring"
+version: 1.0.0
+doi: 0.5281/zenodo.7646358
+date-released: 2023-02-16
+url: "https://github.com/ssujit/datascience_monitoring"
