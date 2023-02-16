@@ -1,5 +1,12 @@
 # datascience_monitoring
 
+# Cite as: 
+Sikder, Sujit Kumar. (2023). Thematic Spatial Data Science case study with Open Data (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.7646358
+
+Find CFF: https://github.com/ssujit/datascience_monitoring/blob/main/citation.cff
+
+
+
 # Documentation for the elearning
 
 #What?
@@ -20,7 +27,8 @@
 
 ### Authors credits:
 [**S. Sikder**](https://www.ioer.de/ioer-im-ueberblick/beschaeftigte/sikder/)
+- Conception and co-ordination learning module
 - Data harvesting from Worldbank API with R
 
  **M. Munzinger:**
-- Automation with SQL and QGIS
+- Data collection, Automation, documentation with SQL and QGIS
