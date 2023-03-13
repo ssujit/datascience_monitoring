@@ -1,9 +1,8 @@
 # datascience_monitoring
 
-# Cite as: 
-Sikder, Sujit Kumar, & Muenzinger, Markus. (2020). An workflow for harvesting and automated processing - Case study land use monitoring using open data (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.7646358
+# PID: https://doi.org/10.5281/zenodo.7646358
 
-Find CFF: https://github.com/ssujit/datascience_monitoring/blob/main/citation.cff
+## Find CFF: https://github.com/ssujit/datascience_monitoring/blob/main/citation.cff
 
 
 
